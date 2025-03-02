@@ -23,14 +23,15 @@ namespace AccesoDatos.Titulos
             {
                 Datos datos = new Datos();
                 bool aggTitulo = datos.comando("insert into titles values('" +
-                "" + txtIdT.Text.Replace("'","''") + "', '" + txtTitulo.Text.Replace("'","''")+ "', '" + txtTipo.Text.Replace("'","''") + "', '" +
+                "" + txtIdT.Text.Replace("'", "''") + "', '" + txtTitulo.Text.Replace("'", "''") + "', '" + txtTipo.Text.Replace("'", "''") + "', '" +
                 "" + txtPubId.Text + "'," + double.Parse(txtPrecio.Text) + "," + double.Parse(txtAnticipo.Text) +
-                "," + double.Parse(txtRegalias.Text) + "," + int.Parse(txtVentas.Text) + ", '" + txtNotas.Text.Replace("'","''") + "'" +
+                "," + double.Parse(txtRegalias.Text) + "," + int.Parse(txtVentas.Text) + ", '" + txtNotas.Text.Replace("'", "''") + "'" +
                 ", '" + dtpFechaPub.Value.Year + "-" + dtpFechaPub.Value.Month + "-" + dtpFechaPub.Value.Day + "')");
 
                 if (aggTitulo)
                 {
                     MessageBox.Show("Libro agregado correctamente", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
@@ -43,6 +44,9 @@ namespace AccesoDatos.Titulos
             }
         }
 
-      
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

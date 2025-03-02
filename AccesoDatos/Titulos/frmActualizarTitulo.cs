@@ -13,7 +13,7 @@ namespace AccesoDatos.Titulos
 {
     public partial class frmActualizarTitulo : Form
     {
-        public frmActualizarTitulo(string id, string titulo,string tipo, 
+        public frmActualizarTitulo(string id, string titulo, string tipo,
             string pubId, string precio, string anticipo, string regalias,
             string ventas, string notas, string fechaPub)
         {
@@ -35,26 +35,51 @@ namespace AccesoDatos.Titulos
             try
             {
                 Datos datos = new Datos();
-                bool actTitulo = datos.comando("  update titles set title = '" + txtTitulo.Text.Replace("'","''") +
-                "', type = '" + txtTipo.Text.Replace("'","''") + "', price =" + double.Parse(txtPrecio.Text) + ", advance =" + double.Parse(txtAnticipo.Text) +
-                ", royalty = " + double.Parse(txtRegalias.Text) + ",ytd_sales = " + int.Parse(txtVentas.Text) +
-                ", notes= '" + txtNotas.Text.Replace("'","''")+ "', pubdate='" + dtpFechaPub.Value.Year + "-" + dtpFechaPub.Value.Month + "-" + dtpFechaPub.Value.Day +
+                bool actTitulo = datos.comando("  update titles set title = '" + txtTitulo.Text.Replace("'", "''") +
+                "', type = '" + txtTipo.Text.Replace("'", "''") + "', price =" + double.Parse(txtPrecio.Text =="" ?"0":txtPrecio.Text) + ", advance =" + double.Parse(txtAnticipo.Text == "" ? "0" : txtAnticipo.Text) +
+                ", royalty = " + double.Parse(txtRegalias.Text== "" ?"0":txtRegalias.Text) + ",ytd_sales = " + int.Parse(txtVentas.Text == "" ? "0": txtVentas.Text) +
+                ", notes= '" + txtNotas.Text.Replace("'", "''") + "', pubdate='" + dtpFechaPub.Value.Year + "-" + dtpFechaPub.Value.Month + "-" + dtpFechaPub.Value.Day +
                 "'  where title_id = '" + txtIdT.Text + "'");
 
                 if (actTitulo)
                 {
                     MessageBox.Show("Titulo Actualizado Correctamente", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Ocurrio un problema al actualizar el sistema", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (FormatException ex) {
+            catch (FormatException ex)
+            {
 
                 MessageBox.Show("Haz introducido un valor no valido en los valores numericos", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+
+
+        private void btnBorrar_Click_1(object sender, EventArgs e)
+        {
+            Datos datos = new Datos();
+            bool borrarTit = datos.comando(" delete from titles where title_id = '" + txtIdT.Text + "'");
+
+            if (borrarTit)
+            {
+                MessageBox.Show("Titulo borrado correctamente", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error al borrar el titulo", "SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

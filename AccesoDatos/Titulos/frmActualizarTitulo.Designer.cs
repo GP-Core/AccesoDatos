@@ -51,6 +51,8 @@
             btnActualizarTitulo = new Button();
             btnBorrar = new Button();
             btnCancelar = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -217,9 +219,11 @@
             // 
             // btnActualizarTitulo
             // 
-            btnActualizarTitulo.Location = new Point(330, 409);
+            btnActualizarTitulo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnActualizarTitulo.Cursor = Cursors.Hand;
+            btnActualizarTitulo.Location = new Point(285, 3);
             btnActualizarTitulo.Name = "btnActualizarTitulo";
-            btnActualizarTitulo.Size = new Size(113, 29);
+            btnActualizarTitulo.Size = new Size(276, 42);
             btnActualizarTitulo.TabIndex = 20;
             btnActualizarTitulo.Text = "ACTUALIZAR";
             btnActualizarTitulo.UseVisualStyleBackColor = true;
@@ -227,30 +231,50 @@
             // 
             // btnBorrar
             // 
-            btnBorrar.Location = new Point(185, 409);
+            btnBorrar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnBorrar.Cursor = Cursors.Hand;
+            btnBorrar.Location = new Point(3, 3);
             btnBorrar.Name = "btnBorrar";
-            btnBorrar.Size = new Size(113, 29);
+            btnBorrar.Size = new Size(276, 42);
             btnBorrar.TabIndex = 21;
             btnBorrar.Text = "BORRAR";
             btnBorrar.UseVisualStyleBackColor = true;
+            btnBorrar.Click += btnBorrar_Click_1;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(495, 409);
+            btnCancelar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.Location = new Point(567, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(113, 29);
+            btnCancelar.Size = new Size(227, 42);
             btnCancelar.TabIndex = 22;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 232F));
+            tableLayoutPanel1.Controls.Add(btnCancelar, 2, 0);
+            tableLayoutPanel1.Controls.Add(btnBorrar, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnActualizarTitulo, 1, 0);
+            tableLayoutPanel1.Location = new Point(4, 390);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(797, 48);
+            tableLayoutPanel1.TabIndex = 23;
             // 
             // frmActualizarTitulo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnBorrar);
-            Controls.Add(btnActualizarTitulo);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(txtNotas);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -273,6 +297,7 @@
             Controls.Add(label1);
             Name = "frmActualizarTitulo";
             Text = "Actualizar Titulo";
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -302,5 +327,6 @@
         private Button btnActualizarTitulo;
         private Button btnBorrar;
         private Button btnCancelar;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -47,6 +47,8 @@
             btnCancelar = new Button();
             btnActualizar = new Button();
             dtpHireDate = new DateTimePicker();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -68,6 +70,7 @@
             // 
             // txtFName
             // 
+            txtFName.Cursor = Cursors.IBeam;
             txtFName.Location = new Point(26, 159);
             txtFName.Name = "txtFName";
             txtFName.Size = new Size(245, 27);
@@ -84,6 +87,7 @@
             // 
             // txtLName
             // 
+            txtLName.Cursor = Cursors.IBeam;
             txtLName.Location = new Point(492, 159);
             txtLName.Name = "txtLName";
             txtLName.Size = new Size(245, 27);
@@ -100,6 +104,7 @@
             // 
             // txtMinit
             // 
+            txtMinit.Cursor = Cursors.IBeam;
             txtMinit.Location = new Point(325, 159);
             txtMinit.Name = "txtMinit";
             txtMinit.Size = new Size(100, 27);
@@ -116,6 +121,7 @@
             // 
             // txtJId
             // 
+            txtJId.Cursor = Cursors.IBeam;
             txtJId.Location = new Point(26, 261);
             txtJId.Name = "txtJId";
             txtJId.Size = new Size(104, 27);
@@ -132,6 +138,7 @@
             // 
             // txtJlevel
             // 
+            txtJlevel.Cursor = Cursors.IBeam;
             txtJlevel.Location = new Point(178, 261);
             txtJlevel.Name = "txtJlevel";
             txtJlevel.Size = new Size(104, 27);
@@ -148,6 +155,7 @@
             // 
             // txtPubId
             // 
+            txtPubId.Cursor = Cursors.IBeam;
             txtPubId.Location = new Point(335, 261);
             txtPubId.Name = "txtPubId";
             txtPubId.Size = new Size(104, 27);
@@ -173,9 +181,11 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(168, 390);
+            btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnEliminar.Cursor = Cursors.Hand;
+            btnEliminar.Location = new Point(3, 3);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(114, 29);
+            btnEliminar.Size = new Size(245, 33);
             btnEliminar.TabIndex = 16;
             btnEliminar.Text = "ELIMINAR";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -183,18 +193,23 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(473, 390);
+            btnCancelar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnCancelar.Cursor = Cursors.Hand;
+            btnCancelar.Location = new Point(558, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(114, 29);
+            btnCancelar.Size = new Size(229, 33);
             btnCancelar.TabIndex = 17;
             btnCancelar.Text = "CERRAR";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(325, 390);
+            btnActualizar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnActualizar.Cursor = Cursors.Hand;
+            btnActualizar.Location = new Point(254, 3);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(114, 29);
+            btnActualizar.Size = new Size(298, 33);
             btnActualizar.TabIndex = 18;
             btnActualizar.Text = "ACTUALIZAR";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -202,20 +217,35 @@
             // 
             // dtpHireDate
             // 
+            dtpHireDate.Cursor = Cursors.Hand;
             dtpHireDate.Location = new Point(473, 270);
             dtpHireDate.Name = "dtpHireDate";
             dtpHireDate.Size = new Size(281, 27);
             dtpHireDate.TabIndex = 19;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.2252235F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.7747765F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 234F));
+            tableLayoutPanel1.Controls.Add(btnEliminar, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnActualizar, 1, 0);
+            tableLayoutPanel1.Controls.Add(btnCancelar, 2, 0);
+            tableLayoutPanel1.Location = new Point(12, 326);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(790, 39);
+            tableLayoutPanel1.TabIndex = 20;
+            // 
             // frmActualizarEmpleado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 386);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(dtpHireDate);
-            Controls.Add(btnActualizar);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnEliminar);
             Controls.Add(label8);
             Controls.Add(txtPubId);
             Controls.Add(label7);
@@ -233,6 +263,7 @@
             Controls.Add(label1);
             Name = "frmActualizarEmpleado";
             Text = "ACTUALIZACION DE DATOS";
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -258,5 +289,6 @@
         private Button btnCancelar;
         private Button btnActualizar;
         private DateTimePicker dtpHireDate;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

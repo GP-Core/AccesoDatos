@@ -54,5 +54,42 @@ namespace AccesoDatos
                                               Convert.ToBoolean(dgvAutors[8, e.RowIndex].Value));
             actualiza.Show();
         }
+
+        private void dgvAutors_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void dgvAutors_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btnInsertar_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void btnInsertar_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmMain main = new frmMain();
+            main.Show();
+        }
+
+        private void btnInicio_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void btnInicio_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor= Cursors.Default;
+        }
     }
 }

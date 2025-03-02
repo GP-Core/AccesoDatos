@@ -53,5 +53,12 @@ namespace AccesoDatos
             frmInsertarTitulo aggTitulo = new frmInsertarTitulo();
             aggTitulo.Show();
         }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmMain main = new frmMain();
+            main.Show();
+        }
     }
 }

@@ -21,18 +21,33 @@ namespace AccesoDatos
         {
             frmAuthors autores = new frmAuthors();
             autores.Show();
+            this.Hide();
         }
 
         private void titulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmEmpleados empleados = new frmEmpleados();
             empleados.Show();
+            this.Hide();
         }
 
         private void tITULOSToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmTitulos titulos = new frmTitulos();
             titulos.Show();
+            this.Hide();
         }
+
+        private void menuStrip_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void menuStrip_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+     
     }
 }
